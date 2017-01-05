@@ -1,0 +1,163 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel Planning System</title>
+<!-- For-Mobile-Apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Arbitrary a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+<!-- Custom-Stylesheet-Links -->
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/bootstrap.min.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/flexslider.css" type="text/css" media="screen" />
+<!-- //Custom-Stylesheet-Links -->
+<!-- Web-Fonts -->
+	<!-- <link href='//fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'> -->
+<!-- //Web-Fonts -->
+ <script type="text/javascript" src="http://localhost:8887/templates/js/jquery.min.js"></script>
+ <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>	
+<script type="text/javascript" src="http://localhost:8887/templates/js/bootstrap.min.js"></script>
+<!--gallery-->
+</head>
+<body>
+<!-- Banner -->
+	<div class="banner-1">
+		<!-- Header -->
+	<div class="header">
+		<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="http://localhost:8080/">Travel Planning system</a>
+				</div>
+
+				<div class="navbar-collapse collapse hover-effect" id="navbar">
+					<ul>
+						<li><a href="http://localhost:8080/" class="active">HOME</a></li>
+						<li><a href="http://localhost:8080/hotmap"><span data-hover="HOTMAP">HOTMAP</span></a></li>
+						<li><a href="http://localhost:8080/recommend"><span data-hover="RECOMMENDATION">RECOMMENDATION</span></a></li>
+						<li><a href="http://localhost:8080/cost"><span data-hover="COST PREDICTION">COST PREDICTION</span></a></li>
+						
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+		<!-- //Navbar -->
+		
+	</div>
+	</div>
+		</div>
+	<!-- //Header -->
+		<!-- //Banner -->
+		<!-- contact -->
+	<div class="contact wthree-2">
+		<div class="container">
+			<h1>Use Our Machine Learning Model To Plan Your Trip</h1> 
+			
+			<div class="contact-form">
+				<div class="col-md-8 contact-form-right  agileits-3">
+					<h3>Enter Your Location and Destination</h3>
+						<input id="start" type="text" name="Location" placeholder="Your Location">
+						<input id="Destination" type="text" name="Destination" placeholder="Destination">
+						<input id="duration" type="text" name="duration" placeholder="Input Your Time Duration">
+						<!-- <textarea placeholder="Message" name="message" required=""></textarea> -->
+						<input type="submit" onclick="getLocation()" value="Submit">
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-8 contact-form-right  agileits-3">
+    				<div id="curve_chart" style="width: 900px; height: 500px"></div>
+    			</div>
+    			<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- //contact -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		//var socket = io.connect();
+		function getLocation(){
+			var start = document.getElementById("start").value;
+			var destination = document.getElementById("Destination").value;
+			var duration = document.getElementById("duration").value;
+			var parm = {
+				"start": start,
+				"destination":destination,
+				"duration":duration
+			}
+			var result = [];
+			socket.emit("getRecommend",parm);
+			socket.on('respDen', function(data){
+				result = data
+				google.charts.load('current', {'packages':['corechart']});
+	      		google.charts.setOnLoadCallback(drawChart);
+				
+				drawChart(result);
+			});
+		}
+
+		function drawChart(result) {
+			time = ['Time', 'Density'] + result
+	        var data = google.visualization.arrayToDataTable([
+	        	time
+	        ]);
+
+	        var options = {
+	          title: 'Pick-Up Density VS. Time ',
+	          curveType: 'function',
+	          legend: { position: 'bottom' }
+	        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+	</script>
+		
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+
+			<div class="footer-info">
+			
+				<div class="col-md-3 col-sm-3 footer-info-grid address animated wow fadeInUp animated animated" data-wow-duration="1200ms" data-wow-delay="500ms">
+					<h4>Travel Planning System</h4>
+					<address>
+						<ul>
+							<li>Columbia University</li>
+							<li>Department of Electrical Engineering</li>
+							<li>Big Data Analytics Final Project</li>
+							<li>Fall 2016</li>
+						</ul>
+					</address>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+
+		
+
+		</div>
+	</div>
+	<!-- //Footer -->
+	</body>
+	</html>

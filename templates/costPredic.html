@@ -1,0 +1,151 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel Planning System</title>
+<!-- For-Mobile-Apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Arbitrary a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+<!-- Custom-Stylesheet-Links -->
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/bootstrap.min.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/flexslider.css" type="text/css" media="screen" />
+<!-- //Custom-Stylesheet-Links -->
+<!-- Web-Fonts -->
+	<link href='//fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<!-- //Web-Fonts -->
+ <script type="text/javascript" src="http://localhost:8887/templates/js/jquery.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>	
+<script type="text/javascript" src="http://localhost:8887/templates/js/bootstrap.min.js"></script>
+<!--gallery-->
+</head>
+<body>
+<!-- Banner -->
+	<div class="banner-1">
+		<!-- Header -->
+	<div class="header">
+		<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="http://localhost:8080/">Travel Planning system</a>
+				</div>
+
+				<div class="navbar-collapse collapse hover-effect" id="navbar">
+					<ul>
+						<li><a href="http://localhost:8080/"><span data-hover="HOME">HOME</span></a></li>
+						<li><a href="http://localhost:8080/hotmap"><span data-hover="HOTMAP">HOTMAP</span></a></li>
+						<li><a href="http://localhost:8080/recommend"><span data-hover="RECOMMENDATION">RECOMMENDATION</a></li>
+						<li><a href="http://localhost:8080/cost" class="active">COST PREDICTION</span></a></li>
+						
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+		<!-- //Navbar -->
+		
+	</div>
+	</div>
+		</div>
+	<!-- //Header -->
+		<!-- //Banner -->
+		<!-- contact -->
+	<div class="contact wthree-2">
+		<div class="container">
+			<h1>Use Our Machine Learning Model To Get An Estimated Cost</h1> 
+			
+			<div class="contact-form">
+				<div class="col-md-8 contact-form-right  agileits-3">
+					<h3>Enter Your Location and Destination</h3>
+						<input id="start" type="text" name="Location" placeholder="Your Location">
+						<input id="Destination" type="text" name="Destination" placeholder="Destination">
+						
+						<!-- <textarea placeholder="Message" name="message" required=""></textarea> -->
+						<input type="submit" onclick="getLocation()" value="Submit">
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-8 contact-form-right  agileits-3">
+					<h3 id="text"></h3>
+					<h3 id="result"></h3>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+				
+
+			<iframe width="100%" height="520" frameborder="0" src="https://kobeusa1.carto.com/builder/8d5cfba0-c224-11e6-94b9-0ef7f98ade21/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+		</div>
+	</div>
+	<!-- //contact -->
+	<script type="text/javascript">
+		var socket = io.connect();
+		function getLocation(){
+			var start = document.getElementById("start").value;
+			var destination = document.getElementById("Destination").value;
+			var parm = {
+				"start": start,
+				"destination":destination
+			}
+			socket.emit("getCost",parm);
+			socket.on("respCost", function(cost){
+				console.log(cost);
+				showCost(cost);
+			})
+		}
+		function showCost(cost){
+			var value = cost.toFixed(2);
+			console.log(value)
+			var div = document.getElementById('result');
+			div.textContent = "$ " + value;
+			var show = document.getElementById("text")
+			show.textContent = "Your Estimated Cost Based On Our Model is: "
+		}
+	</script>
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+
+			<div class="footer-info">
+			
+				<div class="col-md-3 col-sm-3 footer-info-grid address animated wow fadeInUp animated animated" data-wow-duration="1200ms" data-wow-delay="500ms">
+					<h4>Travel Planning System</h4>
+					<address>
+						<ul>
+							<li>Columbia University</li>
+							<li>Department of Electrical Engineering</li>
+							<li>Big Data Analytics Final Project</li>
+							<li>Fall 2016</li>
+						</ul>
+					</address>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+
+		
+
+		</div>
+	</div>
+	<!-- //Footer -->
+	</body>
+	</html>

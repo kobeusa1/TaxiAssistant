@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel Planning System</title>
+<!-- For-Mobile-Apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Arbitrary a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+<!-- Custom-Stylesheet-Links -->
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/bootstrap.min.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://localhost:8887/templates/css/flexslider.css" type="text/css" media="screen" />
+<!-- //Custom-Stylesheet-Links -->
+<!-- Web-Fonts -->
+	<link href='//fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<!-- //Web-Fonts -->
+ <script type="text/javascript" src="http://localhost:8887/templates/js/jquery.min.js"></script>
+ <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>	
+
+<script type="text/javascript" src="http://localhost:8887/templates/js/bootstrap.min.js"></script>
+<!--gallery-->
+<!--JS for animate-->
+	<link href="http://localhost:8887/templates/css/animate.css" rel="stylesheet" type="text/css" media="all">
+	<script src="http://localhost:8887/templates/js/wow.min.js"></script>
+		<script>
+			new WOW().init();
+		</script>
+	<!--//end-animate-->
+</head>
+<body>
+<!-- Banner -->
+	<div class="banner">
+		<!-- Header -->
+	<div class="header">
+		<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand wow fadeInLeft animated" data-wow-delay=".5s" href="index.html">Travel Planing System</a>
+				</div>
+
+				<div class="navbar-collapse collapse hover-effect wow fadeInRight animated" data-wow-delay=".5s" id="navbar">
+					<ul>
+						<li><a href="http://localhost:8080/" class="active">HOME</a></li>
+						<li><a href="http://localhost:8080/hotmap"><span data-hover="HOTMAP">HOTMAP</span></a></li>
+						<li><a href="http://localhost:8080/recommend"><span data-hover="RECOMMENDATION">RECOMMENDATION</span></a></li>
+						<li><a href="http://localhost:8080/cost"><span data-hover="COST PREDICTION">COST PREDICTION</span></a></li>
+						<!-- <li><a href="codes.html"><span data-hover="CODES">CODES</span></a></li> -->
+						<!-- <li><a href="gallery.html"><span data-hover="GALLERY">GALLERY</span></a></li> -->
+						
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+		<!-- //Navbar -->
+		
+	</div>
+	</div>
+	<div class="container">
+			<div class="banner-info">
+				<section class="slider">
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<div class="banner-info1">
+									<h1> the Travel Planning System can </h1>
+									<p>Save $$ money and time on travel</p>
+									
+								</div>
+							<li>
+								<div class="banner-info1">
+									<h1> the Travel Planning System can</h1>
+									<p>Recommend optimal traveling plans for users</p>
+									
+								</div>
+							</li>
+							<li>
+								<div class="banner-info1">
+									<h1>the Travel Planning System can</h1>
+									<p>Predict traveling costs based on our machine learning model</p>
+									
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			
+							<!-- FlexSlider -->
+									  <script defer="" src="http://localhost:8887/templates/js/jquery.flexslider.js"></script>
+									  <script type="text/javascript">
+										$(function(){
+										 
+										});
+										$(window).load(function(){
+										  $('.flexslider').flexslider({
+											animation: "slide",
+											start: function(slider){
+											  $('body').removeClass('loading');
+											}
+										  });
+										});
+									  </script>
+								<!-- FlexSlider -->
+			</div>
+		</div>
+
+
+		</div>
+	<!-- //Header -->
+		<!-- //Banner -->
+		<!-- agile -->
+	<div class="agile">
+		     <div class="container">
+			 	<h3>About Our Porject</h3>
+				 <div class="about-top">
+				       <div class="col-md-5 ab-text wow fadeInLeft animated" data-wow-delay=".5s">
+							<img src="http://localhost:8887/templates/images/10.jpg" alt="Corporate image" class="img-responsive">
+					   </div>
+					   <div class="col-md-7 info wow fadeInRight animated" data-wow-delay=".5s">
+					<div class="accordion">
+						<div class="accordion-section">
+							<h5><a class="accordion-section-title" href="#accordion-1">
+								 Data We Used
+							<i class="glyphicon glyphicon-chevron-down"></i>
+							</a></h5>
+							<div id="accordion-1" class="accordion-section-content" style="display: none;">								
+								<p>Raw NYC Taxi Trip Data that has been available to public.</p>
+							</div>
+						</div>
+					
+						<div class="accordion-section">
+							<h5><a class="accordion-section-title" href="#accordion-3">
+								Data Cleaning
+							<i class="glyphicon glyphicon-chevron-down"> </i> 
+							</a></h5>
+							<div id="accordion-3" class="accordion-section-content" style="display: none;">								
+								<p>We had around 4.1 million records on HDFS and remove dirty records (e.g. nulls, invalid geo coordinates, etc)</p>
+								<p>Feature Extraction: Used Geohashing to discretize the geo data which helps us to encode GPS point</p>
+							</div>
+						</div>
+
+						<div class="accordion-section">
+							<h5><a class="accordion-section-title" href="#accordion-2">
+								Machine Learning Model
+							<i class="glyphicon glyphicon-chevron-down"></i>
+							</a></h5>
+							<div id="accordion-2" class="accordion-section-content" style="display: none;">							
+								<p>Random Forest Regression</p>
+								<p>Linear Regression</p>
+							</div>
+						</div>
+						
+						<div class="accordion-section">
+							<h5><a class="accordion-section-title" href="#accordion-4">
+								 Findings and Next Steps
+							<i class="glyphicon glyphicon-chevron-down"> </i> 
+							</a></h5>
+							<div id="accordion-4" class="accordion-section-content" style="display: none;">								
+								<p>We are able to plan our trips in a specific time, location, weather etc...</p>
+								<p>Same method could apply to different transportation industry such as bus, subway and flight to make prediction and planning</p>
+							</div>
+						</div>	
+												
+					</div>	 
+					<script>
+							var socket = io.connect();
+							function cost() {
+								window.location = '/cost';
+							}
+
+							jQuery(document).ready(function() {
+								function close_accordion_section() {
+									jQuery('.accordion .accordion-section-title').removeClass('active');
+									jQuery('.accordion .accordion-section-content').slideUp(300).removeClass('open');
+								}
+
+								jQuery('.accordion-section-title').click(function(e) {
+									// Grab current anchor value
+									var currentAttrValue = jQuery(this).attr('href');
+
+									if(jQuery(e.target).is('.active')) {
+										close_accordion_section();
+									}else {
+										close_accordion_section();
+
+										// Add active class to section title
+										jQuery(this).addClass('active');
+										// Open up the hidden content panel
+										jQuery('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
+									}
+
+									e.preventDefault();
+								});
+							});
+				</script>
+
+					   </div>
+					     <div class="clearfix"></div>
+					</div>
+									
+				 </div>
+			 </div>
+	
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+
+			<div class="footer-info">
+			
+				<div class="col-md-3 col-sm-3 footer-info-grid address animated wow fadeInUp animated animated" data-wow-duration="1200ms" data-wow-delay="500ms">
+					<h4>Travel Planning System</h4>
+					<address>
+						<ul>
+							<li>Columbia University</li>
+							<li>Department of Electrical Engineering</li>
+							<li>Big Data Analytics Final Project</li>
+							<li>Fall 2016</li>
+						</ul>
+					</address>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+
+		
+
+		</div>
+	</div>
+	<!-- //Footer -->
+	</body>
+	</html>
